@@ -17,6 +17,8 @@ public class Joc_penjat_PolPlaza {
         int[] vidas; //Array para almacenar las vidas de cada jugador en cada ronda
         int[] victorias; //Array para almacenar cuántas rondas ha ganado cada jugador
         int rondas; //Variable para definir cuántas rondas se jugaran
+        String palabraSec; //Variable para almacenar la palabra secreta
+
         
      // Normas del juego
         System.out.println("Bienvenido al juego del colgado");
@@ -65,7 +67,16 @@ public class Joc_penjat_PolPlaza {
             System.out.println("\n** Ronda " + ronda + " **");
         }
         
-        
+        // Se elige un jugador al azar para que elija la palabra secreta
+        int jugadorPalabra = random.nextInt(cantJugadores);
+        System.out.println("El jugador " + nomJugadores[jugadorPalabra] + " elige la palabra secreta.");
+        System.out.println("Jugador " + nomJugadores[jugadorPalabra] + ", ingresa la palabra secreta (sin mostrarla a los demas):");
+        palabraSec = s.next();  // La palabra secreta
+
+        // Inicializamos las vidas para cada jugador en esta ronda
+        for (int j = 0; j < cantJugadores; j++) {
+            vidas[j] = 6;  // Cada jugador comienza con 6 vidas
+        }
         
 	}
 
