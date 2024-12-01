@@ -14,6 +14,8 @@ public class Joc_penjat_PolPlaza {
         // Variables del juego
         String[] nomJugadores;
         int cantJugadores;
+        int[] vidas;
+        int[] victorias;
         
      // Normas del juego
         System.out.println("Bienvenido al juego del colgado");
@@ -28,6 +30,19 @@ public class Joc_penjat_PolPlaza {
         // Añadimos el numero de jugadores
         System.out.println("\nCuantos jugadores son: (Maximo 5)");
         cantJugadores = s.nextInt();
+        
+        // Validamos que haya entre 2 y 5 jugadores
+        while (cantJugadores < 2 || cantJugadores > 5) {
+            System.out.println("Minimo dos jugadores, maximo cinco jugadores.");
+            System.out.println("Cuantos jugadores son?");
+            cantJugadores = s.nextInt();
+        }
+
+        // Inicializamos las variables de jugadores, vidas y victorias
+        nomJugadores = new String[cantJugadores];
+        vidas = new int[cantJugadores];
+        victorias = new int[cantJugadores];
+
 		
 	}
 
