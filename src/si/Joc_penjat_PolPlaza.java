@@ -43,7 +43,18 @@ public class Joc_penjat_PolPlaza {
         vidas = new int[cantJugadores];
         victorias = new int[cantJugadores];
 
-		
+        // Introducimos los nombres de los jugadores
+        for (int i = 0; i < cantJugadores; i++) {
+            System.out.println("Nombre del jugador " + (i + 1) + ":");
+            nomJugadores[i] = s.next();
+        }
+
+        // Mostramos los nombres de los jugadores
+        System.out.println("\nLos jugadores son:");
+        for (int i = 0; i < cantJugadores; i++) {
+            System.out.println(nomJugadores[i]);
+        }
+        
 	}
 
 }
