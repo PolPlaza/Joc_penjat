@@ -23,12 +23,12 @@ public class Joc_penjat_PolPlaza {
      // Normas del juego
         System.out.println("Bienvenido al juego del colgado");
         System.out.println("\nA continuacion las normas del juego:");
-        System.out.println("El juego comienza pidiendo al administrador (un jugador) que elija una palabra secreta, la cual debe ser oculta durante el juego."
-        		+ "Cada jugador tiene que adivinar una letra de la palabra secreta en cada ronda."
-        		+ "El numero maximo de intentos por jugador es 6."
-        		+ "Si un jugador adivina correctamente una letra, esta se revela en su posici√≥n en la palabra secreta."
-        		+ "Si un jugador se queda sin intentos, pierde la ronda."
-        		+ "El jugador que adivine toda la palabra primero o quien gane mas rondas sera el ganador.");
+        System.out.println("El juego comienza pidiendo al administrador (un jugador) que elija una palabra secreta, la cual debe ser oculta durante el juego,"
+        		+ "cada jugador tiene que adivinar una letra de la palabra secreta en cada ronda.");
+        System.out.println("El numero maximo de intentos por jugador es 6.\""
+        		+ "Si un jugador adivina correctamente una letra, esta se revela en su posicion en la palabra secreta.");
+        System.out.println("Si un jugador se queda sin intentos, pierde la ronda.");
+        System.out.println("El jugador que adivine toda la palabra primero o quien gane mas rondas sera el ganador.");
         
         // AÒadimos el numero de jugadores
         System.out.println("\nCuantos jugadores son: (Maximo 5)");
@@ -48,7 +48,7 @@ public class Joc_penjat_PolPlaza {
 
         // Introducimos los nombres de los jugadores
         for (int i = 0; i < cantJugadores; i++) {
-            System.out.println("Nombre del jugador " + (i + 1) + ":");
+            System.out.println("Nombre del jugador: " + (i + 1));
             nomJugadores[i] = s.next();
         }
 
@@ -59,7 +59,7 @@ public class Joc_penjat_PolPlaza {
         }
         
         // Preguntamos las rondas que se jugaran
-        System.out.println("¬øCuantas rondas quieres jugar?");
+        System.out.println("øCuantas rondas quieres jugar?");
         rondas = s.nextInt();
 
         // Ciclo principal para las rondas del juego
@@ -76,6 +76,26 @@ public class Joc_penjat_PolPlaza {
         // Inicializamos las vidas para cada jugador en esta ronda
         for (int j = 0; j < cantJugadores; j++) {
             vidas[j] = 6;  // Cada jugador comienza con 6 vidas
+        }
+        
+        // Comenzamos la ronda, la palabra secreta es oculta por guiones bajos
+        char[] palabraMostrada = new char[palabraSec.length()];
+        for (int i = 0; i < palabraSec.length(); i++) {
+            palabraMostrada[i] = '_'; // Inicializamos el array con guiones bajos
+        }
+
+        // Cada jugador intentara adivinar una letra en esta ronda
+        boolean palabraAdivinada = false;
+        while (!palabraAdivinada) {
+            for (int i = 0; i < cantJugadores; i++) {
+                if (vidas[i] > 0 && i != jugadorPalabra) { // Solo los jugadores con vidas restantes y que no son el que eligi√≥ la palabra participan
+                    System.out.println("\nTurno de " + nomJugadores[i]);
+                    System.out.println("Palabra secreta actual: " + new String(palabraMostrada)); // Convertimos char[] a String
+                    System.out.println("Tienes " + vidas[i] + " intentos restantes.");
+                    System.out.print("Ingresa una letra: ");
+                    char letra = s.next().charAt(0);
+                }
+            }
         }
         
 	}
