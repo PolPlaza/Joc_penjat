@@ -94,9 +94,43 @@ public class Joc_penjat_PolPlaza {
                     System.out.println("Tienes " + vidas[i] + " intentos restantes.");
                     System.out.print("Ingresa una letra: ");
                     char letra = s.next().charAt(0);
+                    
+                    
+                    // Comprobamos si la letra es correcta
+                    boolean acierto = false;
+                    for (int j = 0; j < palabraSec.length(); j++) {
+                        if (palabraSec.charAt(j) == letra && palabraMostrada[j] == '_') {
+                            palabraMostrada[j] = letra; // Actualizamos la palabra mostrada
+                            acierto = true;
+                        }
+                    }
+
+                    // Si no se acierta, restamos una vida
+                    if (!acierto) {
+                        vidas[i]--;
+                        System.out.println("Letra incorrecta");
+                    } else {
+                        System.out.println("Letra correcta");
+                        
+                    // Si un jugador se queda sin vidas, pierde la ronda
+                    if (vidas[i] == 0) {
+                        System.out.println("Te has quedado sin vidas, " + nomJugadores[i] + "");
+                        }
+                        
+                    // Comprobamos si la palabra ha sido adivinada
+                    if (new String(palabraMostrada).equals(palabraSec)) {
+                    	System.out.println("\n" + nomJugadores[i] + " ha adivinado la palabra secreta");
+                          victorias[i]++;
+                          palabraAdivinada = true;
+                          	break; // Terminamos la ronda
+                        }
+
+                    }
                 }
             }
         }
+        
+        
         
 	}
 
