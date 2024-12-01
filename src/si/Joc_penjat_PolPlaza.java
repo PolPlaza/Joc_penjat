@@ -70,7 +70,7 @@ public class Joc_penjat_PolPlaza {
         // Se elige un jugador al azar para que elija la palabra secreta
         int jugadorPalabra = random.nextInt(cantJugadores);
         System.out.println("El jugador " + nomJugadores[jugadorPalabra] + " elige la palabra secreta.");
-        System.out.println("Jugador " + nomJugadores[jugadorPalabra] + ", ingresa la palabra secreta (sin mostrarla a los demas):");
+        System.out.println("Jugador " + nomJugadores[jugadorPalabra] + ", ingresa la palabra secreta (toda la palabra debe estar en minusculas):");
         palabraSec = s.next();  // La palabra secreta
 
         // Inicializamos las vidas para cada jugador en esta ronda
@@ -130,7 +130,17 @@ public class Joc_penjat_PolPlaza {
             }
         }
         
-        
+        // Al final del juego, mostramos quién ha ganado más rondas
+        int maxVictorias = -1;
+        String ganador = "";
+        for (int i = 0; i < cantJugadores; i++) {
+            if (victorias[i] > maxVictorias) {
+                maxVictorias = victorias[i];
+                ganador = nomJugadores[i];
+            }
+        }
+
+        System.out.println("\nEl jugador que ha ganado mas rondas es: " + ganador);
         
 	}
 
