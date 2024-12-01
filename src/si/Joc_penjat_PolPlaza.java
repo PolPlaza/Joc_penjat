@@ -12,10 +12,11 @@ public class Joc_penjat_PolPlaza {
         Random random = new Random();
         
         // Variables del juego
-        String[] nomJugadores;
-        int cantJugadores;
-        int[] vidas;
-        int[] victorias;
+        String[] nomJugadores; //Array para almacenar los nombres de los jugadores
+        int cantJugadores; //Variable para guardar el número de jugadores
+        int[] vidas; //Array para almacenar las vidas de cada jugador en cada ronda
+        int[] victorias; //Array para almacenar cuántas rondas ha ganado cada jugador
+        int rondas; //Variable para definir cuántas rondas se jugaran
         
      // Normas del juego
         System.out.println("Bienvenido al juego del colgado");
@@ -54,6 +55,17 @@ public class Joc_penjat_PolPlaza {
         for (int i = 0; i < cantJugadores; i++) {
             System.out.println(nomJugadores[i]);
         }
+        
+        // Preguntamos las rondas que se jugaran
+        System.out.println("Â¿Cuantas rondas quieres jugar?");
+        rondas = s.nextInt();
+
+        // Ciclo principal para las rondas del juego
+        for (int ronda = 1; ronda <= rondas; ronda++) {
+            System.out.println("\n** Ronda " + ronda + " **");
+        }
+        
+        
         
 	}
 
